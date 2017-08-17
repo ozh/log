@@ -18,6 +18,7 @@ checks:
         fix_line_ending: true
         fix_identation_4spaces: true
         fix_doc_comments: true
+        no_commented_out_code: false
 
 tools:
     external_code_coverage:
