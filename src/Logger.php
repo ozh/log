@@ -278,7 +278,7 @@ class Logger implements LoggerInterface
         $parsed = array();
         
         // Format exception if applicable
-        if (array_key_exists('exception', $context) === true && $context['exception'] instanceof \Exception === true) {
+        if ($this->hasException($context)) {
             $exception = $context['exception'];
             $parsed['exception'] = sprintf(
                 'Exception %s; message: %s; trace: %s',
@@ -297,7 +297,16 @@ class Logger implements LoggerInterface
         
         return $parsed;
     }
-    
+
+
+    /**
+     * @param  array  $context
+     * @return bool
+     */
+    public function hasException($context) {
+        return ( array_key_exists('exception', $context) === true && $context['exception'] instanceof \Exception === true );
+    }
+
 
     /**
      * @param  callable $message_format
