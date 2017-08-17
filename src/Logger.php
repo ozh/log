@@ -70,7 +70,6 @@ class Logger implements LoggerInterface
 
     /**
      * @param  string $level
-     * @return void
      */
     public function __construct($level = LogLevel::DEBUG)
     {
@@ -194,9 +193,10 @@ class Logger implements LoggerInterface
         }
 
         if ($this->isLogLevel($level) && $this->shouldLog($level)) {
-            $formatter = $this->getMessageFormat();
             // This doesn't work on PHP 5.3, which throws "PHP Fatal error: Function name must be a string"
+            // $formatter = $this->getMessageFormat();
             // $this->log[] = $formatter($level, $message, $context);
+            // Instead, the following works on 5.3 to 7.2 & HHVM :
             $this->log[] = call_user_func_array($this->getMessageFormat(), array($level, $message, $context));
         }
     }
@@ -210,7 +210,6 @@ class Logger implements LoggerInterface
     public function isLogLevel($level) {
         if (!array_key_exists($level, $this->log_levels)) {
             throw new InvalidArgumentException('Invalid Log Level');
-            return false;
         }
         
         return true;
@@ -263,7 +262,7 @@ class Logger implements LoggerInterface
         $logged['timestamp'] = date('Y-m-d H:i:s');
         $logged['level'] = $level;
         $logged['message'] = $message;
-        if ($context) {
+        if (!empty($context)) {
             $logged = array_merge($logged, $this->formatContext($context));
         }
         
