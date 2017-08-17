@@ -65,6 +65,7 @@ class LoggerTest extends \PHPUnit\Framework\TestCase
     {
         $logger = new Logger();
         $this->assertSame(0,count($logger->getLog()));
+        $level = (string) $level; // explicit for PHP 5.3 that otherwise throws "PHP Fatal error: Function name must be a string"
         $logger->$level('message');
         $this->assertSame(1,count($logger->getLog()));
     }
