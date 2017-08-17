@@ -2,11 +2,11 @@
 
 A minimalist PSR-3 compliant logger, that logs into an array.
 
-[![Latest Version on Packagist][ico-version]][link-packagist]
+[![Latest Version on Packagist][ico-version]][link-packagist] 
 [![Software License][ico-license]](LICENSE.md)
 [![Build Status](https://travis-ci.org/ozh/log.svg?branch=master)](https://travis-ci.org/ozh/log)
-[![Code Coverage](https://scrutinizer-ci.com/g/ozh/log/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/ozh/log/?branch=master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ozh/log/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ozh/log/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/ozh/log/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/ozh/log/?branch=master) 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ozh/log/badges/quality-score.png)](https://scrutinizer-ci.com/g/ozh/log/?branch=master) 
 
 ## Install
 
