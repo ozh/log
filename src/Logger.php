@@ -195,7 +195,9 @@ class Logger implements LoggerInterface
 
         if ($this->isLogLevel($level) && $this->shouldLog($level)) {
             $formatter = $this->getMessageFormat();
-            $this->log[] = $formatter($level, $message, $context);
+            // This doesn't work on PHP 5.3, which throws "PHP Fatal error: Function name must be a string"
+            // $this->log[] = $formatter($level, $message, $context);
+            $this->log[] = call_user_func_array($this->getMessageFormat(), array($level, $message, $context));
         }
     }
     
