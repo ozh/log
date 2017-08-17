@@ -21,7 +21,7 @@ class Logger implements LoggerInterface
      * @see Logger::getLog()
      * @var array
      */
-    protected $log;
+    protected $log = array();
     
 
     /**
